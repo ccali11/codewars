@@ -1,36 +1,35 @@
 function gap(g, m, n) {
   let pair = [];
-  // Create list of primes up to n
-  let primes = getPrimes(n);
 
-  while (primes[0] < m) {
-    primes.shift();
+  // Create list of primes up to n
+  let primes = getPrimes(m, n);
+
+  if (primes.length < 2) {
+    return null;
   }
 
-  // Search m to n for a gap of g
+  // Search primes for a gap of g
   for (var i = 0; i < primes.length; i++) {
     if (primes[i+1] - primes[i] === g) {
+      // Push the two numbers into the pair array
       pair.push(primes[i], primes[i+1]);
       return pair;
     }
   }
-  // Push the two numbers into the pair array
-  if (pair.length < 2) {
-    return null
-  }
-  return pair;
+
+  return null;
 }
 
-var getPrimes = (end) => {
-  let primes = [2];
-  let count = 3;
+var getPrimes = (start, end) => {
+  let primes = [];
+  let count = start;
 
   if (end < 2) {
     return [];
   }
 
   while (count <= end) {
-    if (isPrime(count)) {
+    if (count > 1 && isPrime(count)) {
       primes.push(count);
     }
     count++;
@@ -47,9 +46,3 @@ var isPrime = (num) => {
   }
   return true;
 }
-
-// g is gap
-// m is start inclusive
-// n is end inclusive
-
-// Return first pair of two prime numbers []

@@ -1,3 +1,4 @@
+//COMPLETE
 function solution(string) {
   var resultArr = [];
 

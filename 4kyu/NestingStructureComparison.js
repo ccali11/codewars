@@ -39,10 +39,32 @@ sameStructureAs = (array, other) => {
   return true;
 };
 
-// Test Suite
+// TEST SUITE
 // console.log(sameStructureAs( [ 1, 1, 1 ], [ 2, 2, 2 ] )) // true
 // console.log(sameStructureAs( [ 1, [ 1, 1 ] ], [ 2, [ 2, 2 ] ] )) // true
 // console.log(sameStructureAs( [ [ [ ], [ ] ] ], [ [ [ ], [ ] ] ] )) // true
 // console.log(sameStructureAs( [ 1, [ 1, 1 ] ], [ [ 2, 2 ], 2 ] ))// false
 // console.log(sameStructureAs( [ 1, [ 1, 1 ] ], [ [ 2 ], 2 ] ))// false
 // console.log(sameStructureAs( [ [ [ ], [ ] ] ], [ [ 1, 1 ] ] ))// false
+
+// CODEWARS VERSION BELOW FOR REFERENCE
+Array.prototype.sameStructureAs = function (other) {
+  if (this.length !== other.length) {
+    return false;
+  }
+
+  for (var i = 0; i < other.length; i++) {
+    if (isArray(other[i])) {
+      if (isArray(this[i])) {
+        return this[i].sameStructureAs(other[i]);
+      } else {
+        return false;
+      }
+    } else if (isArray(this[i])) {
+        return false;
+    }
+  }
+  return true;
+  // Note: You are given a function isArray(o) that returns
+  // whether its argument is an array.
+};

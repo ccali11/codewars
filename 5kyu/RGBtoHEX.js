@@ -9,12 +9,7 @@ The following are examples of expected output values:
 
 
 let rgb = (r, g, b) => {
-  let result = '';
-  r = convertToHex(r);
-  g = convertToHex(g);
-  b = convertToHex(b);
-  result = r+g+b;
-  return result;
+  return convertToHex(r) + convertToHex(g) + convertToHex(b);
 }
 
 let convertToHex = (a) => {
@@ -48,7 +43,7 @@ let convertToHex = (a) => {
 }
 
 // TEST SUITE
-// rgb(255, 255, 255) // returns FFFFFF
-// rgb(255, 255, 300) // returns FFFFFF
-// rgb(0,0,0) // returns 000000
-// rgb(148, 0, 211) // returns 9400D3
+rgb(255, 255, 255) // returns FFFFFF
+rgb(255, 255, 300) // returns FFFFFF
+rgb(0,0,0) // returns 000000
+rgb(148, 0, 211) // returns 9400D3

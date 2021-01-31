@@ -15,13 +15,8 @@ let rgb = (r, g, b) => {
 let convertToHex = (a) => {
   letterLib = ['A', 'B', 'C', 'D', 'E', 'F'];
 
-  if (a < 0) {
-    return '00';
-  }
-
-  if (a > 255) {
-    return 'FF';
-  }
+  if (a < 0) {return '00';}
+  if (a > 255) {return 'FF';}
 
   let base =  Math.floor(a / 16);
   let remainder = a % 16;
